@@ -1,5 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * Copyright © 2019 Dxvn, Inc. All rights reserved.
+ *
+ * © Tran Ngoc Duc <ductn@diepxuan.com>
+ *   Tran Ngoc Duc <caothu91@gmail.com>
+ */
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', static fn () => view('welcome'));
+
+Route::namespace('App\Http\Controllers\Catalog')->prefix('catalog')->name('catalog.')->group(static function (): void {
+    Route::resource('product', ProductController::class);
 });
