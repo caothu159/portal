@@ -28,7 +28,8 @@ jobs:
       matrix:
         # operating-system: [ubuntu-latest]
         operating-system: [ubuntu-22.04, ubuntu-20.04]
-        php-versions: ['5.3', '5.4', '5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.3']
+        # php-versions: ['5.3', '5.4', '5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.3']
+        php-versions: ['8.1', '8.2', '8.3', '8.4']
     name: build and test using PHP ${{ matrix.php-versions }} with ${{ matrix.operating-system }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
