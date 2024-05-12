@@ -26,9 +26,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # operating-system: [ubuntu-22.04, ubuntu-20.04]
-        operating-system: [ubuntu-latest]
-        # php-versions: ['5.3', '5.4', '5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3']
+        # operating-system: [ubuntu-latest]
+        operating-system: [ubuntu-22.04, ubuntu-20.04]
+        php-versions: ['5.3', '5.4', '5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.3']
+    name: build and test using PHP ${{ matrix.php-versions }} with ${{ matrix.operating-system }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -38,7 +39,9 @@ jobs:
       - name: Set up PHP with PECL extension
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: ${{ matrix.php-versions }}
+          extensions: intl #optional
+          ini-values: "post_max_size=256M" #optional
 
       - name: Install dependencies
         run: composer install
