@@ -3,10 +3,12 @@
 declare(strict_types=1);
 
 /*
- * Copyright © 2019 Dxvn, Inc. All rights reserved.
+ * @copyright  © 2019 Dxvn, Inc.
  *
- * © Tran Ngoc Duc <ductn@diepxuan.com>
- *   Tran Ngoc Duc <caothu91@gmail.com>
+ * @author     Tran Ngoc Duc <ductn@diepxuan.com>
+ * @author     Tran Ngoc Duc <caothu91@gmail.com>
+ *
+ * @lastupdate 2024-05-12 16:43:12
  */
 
 use Illuminate\Support\Facades\Route;
@@ -23,7 +25,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', static fn () => view('welcome'));
-
-Route::namespace('App\Http\Controllers\Catalog')->prefix('catalog')->name('catalog.')->group(static function (): void {
-    Route::resource('product', ProductController::class);
-});
