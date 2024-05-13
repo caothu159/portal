@@ -50,6 +50,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "catalog-sync": [
+            "@php artisan app:catalog-sync"
         ]
     },
     "extra": {
