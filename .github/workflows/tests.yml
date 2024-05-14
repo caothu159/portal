@@ -3,22 +3,23 @@ name: Tests
 on:
   push:
     branches:
-      - master
+      - main
       - '*.x'
   pull_request:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 * * * *'
 
 permissions:
   contents: read
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.operating-system}}
 
     strategy:
       fail-fast: true
       matrix:
+        operating-system: [ubuntu-22.04, ubuntu-20.04]
         php: [8.1, 8.2, 8.3]
 
     name: PHP ${{ matrix.php }}
