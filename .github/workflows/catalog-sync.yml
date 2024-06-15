@@ -56,5 +56,8 @@ jobs:
         run:
           tailscale status
 
+      - name: Execute Catalog Sync
+        run: composer run catalog-sync
+
       - name: Execute tests
         run: vendor/bin/phpunit
