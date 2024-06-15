@@ -36,6 +36,10 @@ jobs:
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
 
+      - name: Check for tailscale is working
+        run:
+          tailscale status
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -46,15 +50,14 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
 
-      - name: Copy environment file
-        run: cp .env.example .env
+      - name: Test environment
+        run: composer run env-test
 
-      - name: Generate app key
-        run: php artisan key:generate
+      # - name: Copy environment file
+      #   run: cp .env.example .env
 
-      - name: Check for tailscale is working
-        run:
-          tailscale status
+      # - name: Generate app key
+      #   run: php artisan key:generate
 
       - name: Execute Catalog Sync
         run: composer run catalog-sync

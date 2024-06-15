@@ -54,6 +54,9 @@
         "catalog-sync": [
             "Composer\\Config::disableProcessTimeout",
             "@php artisan app:catalog-sync"
+        ],
+        "env-test": [
+            "@php artisan app:env-test"
         ]
     },
     "extra": {
