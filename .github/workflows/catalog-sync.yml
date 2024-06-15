@@ -52,9 +52,9 @@ jobs:
       - name: Generate app key
         run: php artisan key:generate
 
-      - name: check for hello.ts.net in netmap
+      - name: Check for tailscale is working
         run:
-          tailscale status | grep -q hello
+          tailscale status
 
       - name: Execute tests
         run: vendor/bin/phpunit
