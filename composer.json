@@ -52,6 +52,7 @@
             "@php artisan key:generate --ansi"
         ],
         "catalog-sync": [
+            "Composer\\Config::disableProcessTimeout",
             "@php artisan app:catalog-sync"
         ]
     },
