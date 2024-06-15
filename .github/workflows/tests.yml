@@ -7,8 +7,7 @@ on:
       - '*.x'
   pull_request:
   schedule:
-    - cron: '0 */3 * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *'
 
 permissions:
   contents: read
@@ -29,13 +28,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Tailscale
-        uses: tailscale/github-action@v2
-        with:
-          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-          tags: tag:ci
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -51,10 +43,6 @@ jobs:
 
       - name: Generate app key
         run: php artisan key:generate
-
-      - name: check for hello.ts.net in netmap
-        run:
-          tailscale status | grep -q hello
 
       - name: Execute tests
         run: vendor/bin/phpunit
