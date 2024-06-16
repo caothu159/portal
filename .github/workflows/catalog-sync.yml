@@ -50,20 +50,35 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
 
-      - name: Test environment
-        run: composer run env-test
-        env:
-          MAGENTO_BASE_URL: ${{ secrets.MAGENTO_BASE_URL }}
-          SQLSRV_URL: ${{ secrets.SQLSRV_URL }}
+        # - name: Copy environment file
+        #   run: cp .env.example .env
 
-      # - name: Copy environment file
-      #   run: cp .env.example .env
-
-      # - name: Generate app key
-      #   run: php artisan key:generate
+        # - name: Generate app key
+        #   run: php artisan key:generate
 
       - name: Execute Catalog Sync
-        run: composer run catalog-sync
+        run: |
+          composer run env-test
+          composer run catalog-sync
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+          MAGENTO_BASE_URL: ${{ secrets.MAGENTO_BASE_URL }}
+          MAGENTO_CONSUMER_KEY: ${{ secrets.MAGENTO_CONSUMER_KEY }}
+          MAGENTO_CONSUMER_SECRET: ${{ secrets.MAGENTO_CONSUMER_SECRET }}
+          MAGENTO_ACCESS_TOKEN: ${{ secrets.MAGENTO_ACCESS_TOKEN }}
+          MAGENTO_ACCESS_TOKEN_SECRET: ${{ secrets.MAGENTO_ACCESS_TOKEN_SECRET }}
+
+          SQLSRV_URL: ${{ secrets.SQLSRV_URL }}
+          SQLSRV_HOST: ${{ secrets.SQLSRV_HOST }}
+          SQLSRV_PORT: ${{ secrets.SQLSRV_PORT }}
+          SQLSRV_DATABASE: ${{ secrets.SQLSRV_DATABASE }}
+          SQLSRV_USERNAME: ${{ secrets.SQLSRV_USERNAME }}
+          SQLSRV_PASSWORD: ${{ secrets.SQLSRV_PASSWORD }}
 
       - name: Execute tests
         run: vendor/bin/phpunit
