@@ -57,6 +57,7 @@ jobs:
         #   run: php artisan key:generate
 
       - name: Execute Catalog Sync
+        shell: bash
         run: |
           composer run env-test
           composer run catalog-sync
