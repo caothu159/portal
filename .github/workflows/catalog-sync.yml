@@ -6,8 +6,9 @@ on:
       - main
       - '*.x'
   pull_request:
+    branches: [main]
   schedule:
-    - cron: '15 */3 * * *'
+    - cron: '15 */6 * * *'
   workflow_dispatch:
 
 # permissions:
