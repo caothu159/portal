@@ -52,8 +52,6 @@
             "Diepxuan\\Charset\\": "diepxuan/php-charset/src/"
         },
         "files": [
-            "diepxuan/laravel-core/helpers.php",
-            "diepxuan/laravel-catalog/helpers.php",
             "diepxuan/php-charset/helpers.php",
             "diepxuan/php-charset/vn_charset_conversion.php"
         ]
@@ -84,18 +82,6 @@
         "env-test": [
             "@php artisan app:env-test"
         ]
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Diepxuan\\Catalog\\Providers\\CatalogServiceProvider",
-                "Diepxuan\\Providers\\ServiceProvider",
-                "Diepxuan\\Log\\Providers\\ServiceProvider",
-                "Diepxuan\\Magento\\Providers\\MagentoServiceProvider"
-            ],
-            "aliases": {},
-            "dont-discover": []
-        }
     },
     "config": {
         "optimize-autoloader": true,

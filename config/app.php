@@ -8,17 +8,14 @@ declare(strict_types=1);
  * @author     Tran Ngoc Duc <ductn@diepxuan.com>
  * @author     Tran Ngoc Duc <caothu91@gmail.com>
  *
- * @lastupdate 2024-07-04 09:55:41
+ * @lastupdate 2024-07-04 22:00:54
  */
 
 use App\Providers\AppServiceProvider;
 use App\Providers\AuthServiceProvider;
 use App\Providers\EventServiceProvider;
 use App\Providers\RouteServiceProvider;
-use Diepxuan\Catalog\Providers\CatalogServiceProvider;
 use Diepxuan\Core\Providers\ServiceProvider as CoreServiceProvider;
-use Diepxuan\Log\Providers\ServiceProvider as LogServiceProvider;
-use Diepxuan\Magento\Providers\MagentoServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -183,10 +180,7 @@ return [
         EventServiceProvider::class,
         RouteServiceProvider::class,
 
-        CatalogServiceProvider::class,
         CoreServiceProvider::class,
-        LogServiceProvider::class,
-        MagentoServiceProvider::class,
     ])->toArray(),
 
     /*
