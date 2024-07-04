@@ -1,0 +1,20 @@
+{
+    "name": "diepxuan/laravel-ronaldjack",
+    "description": "Ronald Jack SDK for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tran Ngoc Duc",
+            "email": "ductn@diepxuan.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Diepxuan\\RonaldJack\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {}
+    }
+}
