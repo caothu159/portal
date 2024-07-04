@@ -5,18 +5,27 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "barryvdh/laravel-debugbar": "^3.13",
         "diepxuan/laravel-catalog": "dev-main",
-        "diepxuan/laravel-core": "dev-main",
-        "diepxuan/laravel-magento": "dev-main",
-        "diepxuan/laravel-simba": "dev-main",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "diepxuan/laravel-core": "*",
+        "ext-json": "*",
+        "guzzlehttp/oauth-subscriber": "*"
+    },
+    "replace": {
+        "diepxuan/laravel-core": "*",
+        "diepxuan/laravel-catalog": "*",
+        "diepxuan/laravel-eloquent-composite": "*",
+        "diepxuan/laravel-log": "*",
+        "diepxuan/laravel-magento": "*",
+        "diepxuan/laravel-simba": "*",
+        "diepxuan/php-charset": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
+        "barryvdh/laravel-debugbar": "^3.13",
         "friendsofphp/php-cs-fixer": "^3.54",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -29,8 +38,25 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
-        }
+            "Database\\Seeders\\": "database/seeders/",
+            "Diepxuan\\Core\\": "diepxuan/laravel-core/src/",
+            "Diepxuan\\Magento\\": "diepxuan/laravel-magento/src/",
+            "Diepxuan\\Catalog\\": "diepxuan/laravel-catalog/src/",
+            "Diepxuan\\Catalog\\Database\\Factories\\": "diepxuan/laravel-catalog/database/factories/",
+            "Diepxuan\\Catalog\\Database\\Seeders\\": "diepxuan/laravel-catalog/database/seeders/",
+            "Diepxuan\\Database\\Eloquent\\": "diepxuan/laravel-eloquent-composite/src/",
+            "Diepxuan\\Log\\": "diepxuan/laravel-log/src/",
+            "Diepxuan\\Simba\\": "diepxuan/laravel-simba/src/",
+            "Diepxuan\\Simba\\Database\\Factories\\": "diepxuan/laravel-simba/database/factories/",
+            "Diepxuan\\Simba\\Database\\Seeders\\": "diepxuan/laravel-simba/database/seeders/",
+            "Diepxuan\\Charset\\": "diepxuan/php-charset/src/"
+        },
+        "files": [
+            "diepxuan/laravel-core/helpers.php",
+            "diepxuan/laravel-catalog/helpers.php",
+            "diepxuan/php-charset/helpers.php",
+            "diepxuan/php-charset/vn_charset_conversion.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -61,18 +87,28 @@
     },
     "extra": {
         "laravel": {
+            "providers": [
+                "Diepxuan\\Catalog\\Providers\\CatalogServiceProvider",
+                "Diepxuan\\Providers\\ServiceProvider",
+                "Diepxuan\\Log\\Providers\\ServiceProvider",
+                "Diepxuan\\Magento\\Providers\\MagentoServiceProvider"
+            ],
+            "aliases": {},
             "dont-discover": []
         }
     },
     "config": {
         "optimize-autoloader": true,
-        "preferred-install": "dist",
+        "preferred-install": {
+            "diepxuan/*": "source",
+            "*": "dist"
+        },
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

@@ -1,10 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * @copyright  © 2019 Dxvn, Inc.
+ *
+ * @author     Tran Ngoc Duc <ductn@diepxuan.com>
+ * @author     Tran Ngoc Duc <caothu91@gmail.com>
+ *
+ * @lastupdate 2024-07-04 09:55:41
+ */
+
+use App\Providers\AppServiceProvider;
+use App\Providers\AuthServiceProvider;
+use App\Providers\EventServiceProvider;
+use App\Providers\RouteServiceProvider;
+use Diepxuan\Catalog\Providers\CatalogServiceProvider;
+use Diepxuan\Core\Providers\ServiceProvider as CoreServiceProvider;
+use Diepxuan\Log\Providers\ServiceProvider as LogServiceProvider;
+use Diepxuan\Magento\Providers\MagentoServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -156,18 +174,19 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-        /*
-         * Package Service Providers...
-         */
+        // Package Service Providers...
 
-        /*
-         * Application Service Providers...
-         */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
+        // Application Service Providers...
+        AppServiceProvider::class,
+        AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        EventServiceProvider::class,
+        RouteServiceProvider::class,
+
+        CatalogServiceProvider::class,
+        CoreServiceProvider::class,
+        LogServiceProvider::class,
+        MagentoServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -184,5 +203,4 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
-
 ];

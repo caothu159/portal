@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @author     Tran Ngoc Duc <ductn@diepxuan.com>
  * @author     Tran Ngoc Duc <caothu91@gmail.com>
  *
- * @lastupdate 2024-07-03 17:48:31
+ * @lastupdate 2024-07-04 16:38:12
  */
 
 use Composer\InstalledVersions as ComposerPackage;
@@ -18,7 +18,9 @@ use Illuminate\Support\Str;
 if (!function_exists('module_path')) {
     function module_path($package_name, $path = null)
     {
-        $packagePath = new SplFileInfo(ComposerPackage::getInstallPath($package_name));
+        $packagePath = ComposerPackage::getInstallPath($package_name);
+        $packagePath = $packagePath ?: base_path($package_name);
+        $packagePath = new SplFileInfo($packagePath);
         $packagePath = $packagePath->isDir() ? $packagePath : new SplFileInfo(__DIR__ . '/../');
 
         if ($path) {
@@ -39,13 +41,6 @@ if (!function_exists('module_packages')) {
      */
     function module_packages(): Collection
     {
-        dd(
-            glob(base_path('diepxuan/*'), GLOB_ONLYDIR),
-            Collection::wrap(ComposerPackage::getInstalledPackages())
-                ->where(static fn (string $package) => Str::of($package)
-                    ->startsWith('diepxuan'))
-        );
-
         return Collection::wrap(ComposerPackage::getInstalledPackages())
             ->where(static fn (string $package) => Str::of($package)
                 ->startsWith('diepxuan'))
