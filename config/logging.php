@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @author     Tran Ngoc Duc <ductn@diepxuan.com>
  * @author     Tran Ngoc Duc <caothu91@gmail.com>
  *
- * @lastupdate 2024-06-16 12:57:55
+ * @lastupdate 2024-06-30 11:48:38
  */
 
 use Monolog\Handler\NullHandler;
@@ -64,7 +64,7 @@ return [
     'channels' => [
         'stack' => [
             'driver'            => 'stack',
-            'channels'          => ['single', 'console'],
+            'channels'          => 'single',
             'ignore_exceptions' => false,
         ],
 

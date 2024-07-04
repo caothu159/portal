@@ -1,0 +1,23 @@
+{
+  "name": "diepxuan/laravel-log",
+  "description": "Custom Channel Log for Laravel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tran Ngoc Duc",
+      "email": "ductn@diepxuan.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Diepxuan\\Log\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Diepxuan\\Log\\Providers\\ServiceProvider"
+      ]
+    }
+  }
+}

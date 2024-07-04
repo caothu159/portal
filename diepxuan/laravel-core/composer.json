@@ -1,0 +1,29 @@
+{
+  "name": "diepxuan/laravel-core",
+  "description": "Laravel core for DX System",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tran Ngoc Duc",
+      "email": "ductn@diepxuan.com"
+    }
+  ],
+  "require": {
+    "illuminate/support": "^10.0"
+  },
+  "autoload": {
+    "files": [
+      "helpers.php"
+    ],
+    "psr-4": {
+      "Diepxuan\\Core\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Diepxuan\\Core\\Providers\\ServiceProvider"
+      ]
+    }
+  }
+}

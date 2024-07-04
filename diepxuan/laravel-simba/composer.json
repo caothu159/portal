@@ -1,0 +1,26 @@
+{
+  "name": "diepxuan/laravel-simba",
+  "description": "Laravel Integration With Simba",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tran Ngoc Duc",
+      "email": "ductn@diepxuan.com"
+    }
+  ],
+  "require": {
+    "diepxuan/php-charset": "*",
+    "diepxuan/laravel-core": "*",
+    "diepxuan/laravel-eloquent-composite": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Diepxuan\\Simba\\": "src/",
+      "Diepxuan\\Simba\\Database\\Factories\\": "database/factories/",
+      "Diepxuan\\Simba\\Database\\Seeders\\": "database/seeders/"
+    }
+  },
+  "extra": {
+    "laravel": {}
+  }
+}
