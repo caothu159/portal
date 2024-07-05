@@ -5,17 +5,18 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "ext-json": "*",
         "diepxuan/laravel-catalog": "dev-main",
+        "diepxuan/laravel-core": "*",
         "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/oauth-subscriber": "*",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8",
-        "diepxuan/laravel-core": "*",
-        "ext-json": "*",
-        "guzzlehttp/oauth-subscriber": "*"
+        "laravel/tinker": "^2.8"
     },
     "replace": {
         "diepxuan/laravel-core": "*",
+        "diepxuan/laravel-ronaldjack": "*",
         "diepxuan/laravel-catalog": "*",
         "diepxuan/laravel-eloquent-composite": "*",
         "diepxuan/laravel-log": "*",
