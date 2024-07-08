@@ -50,7 +50,8 @@
             "Diepxuan\\Simba\\": "diepxuan/laravel-simba/src/",
             "Diepxuan\\Simba\\Database\\Factories\\": "diepxuan/laravel-simba/database/factories/",
             "Diepxuan\\Simba\\Database\\Seeders\\": "diepxuan/laravel-simba/database/seeders/",
-            "Diepxuan\\Charset\\": "diepxuan/php-charset/src/"
+            "Diepxuan\\Charset\\": "diepxuan/php-charset/src/",
+            "Diepxuan\\RonaldJack\\": "diepxuan/laravel-ronaldjack/src/"
         },
         "files": [
             "diepxuan/php-charset/helpers.php",

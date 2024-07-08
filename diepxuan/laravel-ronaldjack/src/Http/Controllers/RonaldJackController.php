@@ -8,16 +8,16 @@ declare(strict_types=1);
  * @author     Tran Ngoc Duc <ductn@diepxuan.com>
  * @author     Tran Ngoc Duc <caothu91@gmail.com>
  *
- * @lastupdate 2024-07-07 21:39:33
+ * @lastupdate 2024-07-08 21:11:49
  */
 
 namespace Diepxuan\RonaldJack\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Diepxuan\RonaldJack\Models\Machine;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Diepxuan\RonaldJack\Models\Machine;
 
 class RonaldJackController extends Controller
 {
@@ -26,7 +26,8 @@ class RonaldJackController extends Controller
      */
     public function index()
     {
-        $machine        = new Machine();
+        $machine = new Machine();
+
         return view('catalog::system.index', [
         ]);
     }
