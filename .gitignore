@@ -20,3 +20,6 @@ yarn-error.log
 /.idea
 /.vscode
 composer.lock
+.phpactor.json
+laravel.code-workspace
+package-lock.json
