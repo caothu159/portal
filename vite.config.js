@@ -10,6 +10,6 @@ export default defineConfig({
         laravel({
             input: $assets,
             refresh: true,
-        }),
+        })
     ],
 });
