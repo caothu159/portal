@@ -11,8 +11,10 @@
         "guzzlehttp/guzzle": "^7.2",
         "guzzlehttp/oauth-subscriber": "*",
         "laravel/framework": "^10.10",
+        "laravel/jetstream": "^4.3",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "livewire/livewire": "^3.0"
     },
     "replace": {
         "diepxuan/laravel-core": "*",
@@ -54,6 +56,7 @@
             "Diepxuan\\RonaldJack\\": "diepxuan/laravel-ronaldjack/src/"
         },
         "files": [
+            "diepxuan/laravel-catalog/helpers.php",
             "diepxuan/php-charset/helpers.php",
             "diepxuan/php-charset/vn_charset_conversion.php"
         ]
